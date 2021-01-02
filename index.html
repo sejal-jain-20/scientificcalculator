@@ -1,0 +1,349 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	
+<head>
+     
+    <title> Scientific Calculator using HTML, CSS and Js</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="css/style1.css">
+
+     <script> 
+		
+      /* Creating function in HTML for backspace operation */ 
+      function backspace(calc) {											 
+        size = calc.display.value.length; 
+        calc.display.value = calc.display.value.substring(0, size-1); 
+      } 
+      
+      /* Creating function to calculate factorial of element */ 
+      function calculate(calc) { 
+        
+        /* Check if function include ! character then 
+        calculate factorial of number */ 
+        if(calc.display.value.includes("!")) { 
+          
+          size = calc.display.value.length; 
+          n = Number(calc.display.value.substring(0, size-1)); 
+          f = 1; 
+          
+          for(i = 2; i <= n; i++) 
+            f = f*i; 
+          calc.display.value = f; 
+        } 
+        
+        /* If function include % character then calculate 
+        the % of number */ 
+        else if(calc.display.value.includes("%")) { 
+          
+          size = calc.display.value.length; 
+          n = Number(calc.display.value.substring(0, size-1)); 
+          calc.display.value = n/100; 
+        } 
+  
+                          else	{ 
+          /* Otherwise evalute and execute output */
+                                  z = eval(calc.display.value); 
+          calc.display.value = z;/eval(calc.display.value);/ 
+                                  if(calc.display.value.includes("-")){
+              var color = "solid red 2px";
+                                                  var c = "red";
+                                                  document.getElementById("display").style.border = color; 
+                                                  document.getElementById("display").style.color = c; 
+                                     }
+                                  else 
+                                     {
+              var color = "solid black 2px";
+                                                  var c = "black";
+                                                  document.getElementById("display").style.border = color;
+                                                  document.getElementById("display").style.color = c;                                     
+                                  }
+                       }	
+                 } 
+    </script> 
+  
+
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TECGURU</a>
+          </div>
+      
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            
+          
+                <ul id="nav-list" class="nav navbar-nav navbar-right visible-xs">
+                 <li>
+                   <a href="#Chicken">
+                     <span></span><br class="hidden-xs">SIMULATION</a>
+                 </li>
+                 <li>
+                   <a href="#Beef">
+                     <span></span><br class="hidden-xs">ABOUT</a>
+                 </li>
+                 <li>
+                   <a href="#Sushi">
+                     <span></span><br class="hidden-xs">CONTACT</a>
+                 </li>
+              
+                </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+      <section>
+          <h1>Scientific Calculator</h1>
+
+    </section>
+
+    <div class="jumbotron">
+     
+        <p class="lead">Doing a mathematical calculation in your head, not trusting your answer , so you ended up using a calculator anyway.</p>
+        <hr class="my-4">
+       
+    </div>
+    <h2 >ABOUT</h2>
+    
+          <div class="polaroid">
+               <img src="abbbt.jpg" alt="5 Terre" width="150px">
+           
+          </div>
+    
+     <p class="sidetext">
+        This is an online javascript scientific calculator. 
+        You can click the buttons or type to perform calculations as you would on a physical calculator.
+        The most important thing you can do right now is STAY HOME as much as possible.
+        Use our new COVID-19 social distancing impact calculator to see why you don’t need to take the risk,
+        for you, for your family, for your friends, for all of us, calculate it!
+
+        The COVID-19 social distancing impact calculator was developed 100% @home.
+     </p>
+
+
+     <div class="polaroid">
+      <img src="img.png" alt="5 Terre"  width="180px" >
+  
+ </div>
+     <!--simulation-->
+    <div class=" jmb">
+      <h2 style="text-align: left; ">SIMULATION</h2>
+	
+	  
+	
+	<form name = "calc"> 
+		
+		<table id = "calc" border = 2> 
+			
+		<tr> 
+			<td colspan=5><input id="display" name="display"
+				onkeypress="return event.charCode >= 48 
+				&& event.charCode <= 57" type="text"> 
+			</td> 
+		</tr> 
+		
+		<tr> 
+			<td><input id="btn" type="button" value="1"
+					OnClick="calc.display.value+='1'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="2"
+					OnClick="calc.display.value+='2'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="3"
+					OnClick="calc.display.value+='3'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="C"
+					OnClick="calc.display.value=''"> 
+			</td> 
+			<td><input id="btn" type="button" value="<-"
+					OnClick="backspace(this.form)"> 
+			</td> 
+			<td><input id="btn" type="button" value="="
+					OnClick="calculate(this.form)"> 
+			</td> 
+		</tr> 
+		
+		<tr> 
+			<td><input id="btn" type="button" value="4"
+					OnClick="calc.display.value+='4'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="5"
+					OnClick="calc.display.value+='5'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="6"
+					OnClick="calc.display.value+='6'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="-"
+					OnClick="calc.display.value+='-'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="%"
+					OnClick="calc.display.value+='%'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="cos"
+					OnClick="calc.display.value='Math.cos('"> 
+			</td> 
+		</tr> 
+		
+		<tr> 
+			<td><input id="btn" type="button" value="7"
+					OnClick="calc.display.value+='7'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="8"
+					OnClick="calc.display.value+='8'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="9"
+					OnClick="calc.display.value+='9'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="*"
+					OnClick="calc.display.value+='*'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="n!"
+					OnClick="calc.display.value+='!'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="sin"
+					OnClick="calc.display.value='Math.sin('"> 
+			</td> 
+		</tr> 
+		
+		<tr> 
+			<td><input id="btn" type="button" value="."
+					OnClick="calc.display.value+='.'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="0"
+					OnClick="calc.display.value+='0'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value=","
+					OnClick="calc.display.value+=','"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="+"
+					OnClick="calc.display.value+='+'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="/"
+					OnClick="calc.display.value+='/'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="tan"
+					OnClick="calc.display.value='Math.tan('"> 
+			</td> 
+		</tr> 
+		
+		<tr> 
+			<td><input id="btn" type="button" value="E"
+					OnClick="calc.display.value+='Math.E'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="pi"
+					OnClick="calc.display.value+='Math.PI'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="^"
+					OnClick="calc.display.value+='Math.pow('"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="("
+					OnClick="calc.display.value+='('"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value=")"
+					OnClick="calc.display.value+=')'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="log"
+					OnClick="calc.display.value='Math.log('"> 
+			</td> 
+		</tr> 
+		
+		<tr> 
+			<td><input id="btn" type="button" value="sqrt"
+					OnClick="calc.display.value+='Math.sqrt('"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="ln2"
+					OnClick="calc.display.value+='Math.LN2'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="ln10"
+					OnClick="calc.display.value+='Math.Log10'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="l2e"
+					OnClick="calc.display.value+='Math.LOG2E'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="l10e"
+					OnClick="calc.display.value+='Math.log10'"> 
+			</td> 
+			
+			<td><input id="btn" type="button" value="exp"
+					OnClick="calc.display.value='Math.exp('"> 
+			</td> 
+		</tr> 
+		</table> 
+		</form> 
+
+
+		<hr>
+
+	
+		
+	  <!-- End page content -->
+	  </div>
+	  
+	  <!-- Footer -->
+	  <footer class="w3-center w3-light-grey w3-padding-32">
+		<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+	  </footer>
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ </html>
+
+
